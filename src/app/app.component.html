@@ -1,0 +1,23 @@
+<div class="search-field">
+  <input
+    type="text"
+    class="form"
+    placeholder="search by name, address, pin code, etc"
+    [(ngModel)]="searchTerm"
+  />
+</div>
+
+<div class="view-port">
+  <div class="res" *ngFor="let data of getApiData | apiFilter: searchTerm">
+    <div class="user-data">
+      <h1>{{ data.id | uppercase }}</h1>
+      <h2>
+        <i>{{ data.name }}</i>
+      </h2>
+      <h4>
+        {{ data.address }} <br />
+        {{ data.pincode }}
+      </h4>
+    </div>
+  </div>
+</div>
